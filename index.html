@@ -28,7 +28,7 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main id="main-content" class="main-content container">
 
         <div class="booking-content">
             <h1>Cruise Queen</h1>
@@ -107,56 +107,76 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="book-now" class="btn-style">Book Now</button>
         </div>
-        <script>
+        
+       
+    </main>
+    <div id="welcome">
+        
+            <div class="row">
+                <img src="images/tenor.gif" alt="">
+                <h1 style="color: white;text-align: center;">Warm welcome to the Great Cruise-queen</h1>
+            </div>
+        
+    </div>
+    <script>
            
 
-            function inputHandler(id,isIncrease){
-                const inputValue=document.getElementById(id);
-                let inputCount=parseInt(inputValue.value);    
-                if(isNaN(inputCount))inputCount=0; 
-                // const newInputCount=inputCount-1;
-                let newInputCount=inputCount;
-                if(isIncrease==true){
-                    newInputCount=inputCount+1;
-                   }
-                else if(isIncrease==false && inputCount>0){
-                    newInputCount=inputCount-1;
-                   }
-                // console.log(newInputCount);
-                document.getElementById(id).value=newInputCount;
-                calculateTotal();
-                
-            }
-            function calculateTotal(){
-                let firstClassCount=0;
-                let economyCount=0;
-                firstClassCount=getInputValue('first-class');
-                
-                economyCount=getInputValue('economy');
-                if(isNaN(economyCount))economyCount=0;
-                if(isNaN(firstClassCount))firstClassCount=0;
-                
-                
-               
-               
-                const total=(firstClassCount*150)+economyCount*100;
-                document.getElementById('total-value').innerText= "$"+total;
-                const taxAmount=Math.round(total*0.1);
-                document.getElementById('tax-value').innerText="$"+taxAmount;
-                const grandTotal=total+taxAmount;
-                document.getElementById('subtotal-value').innerText="$"+grandTotal;
-            }
+        function inputHandler(id,isIncrease){
+            const inputValue=document.getElementById(id);
+            let inputCount=parseInt(inputValue.value);    
+            if(isNaN(inputCount))inputCount=0; 
+            // const newInputCount=inputCount-1;
+            let newInputCount=inputCount;
+            if(isIncrease==true){
+                newInputCount=inputCount+1;
+               }
+            else if(isIncrease==false && inputCount>0){
+                newInputCount=inputCount-1;
+               }
+            // console.log(newInputCount);
+            document.getElementById(id).value=newInputCount;
+            calculateTotal();
+            
+        }
+        function calculateTotal(){
+            let firstClassCount=0;
+            let economyCount=0;
+            firstClassCount=getInputValue('first-class');
+            
+            economyCount=getInputValue('economy');
+            if(isNaN(economyCount))economyCount=0;
+            if(isNaN(firstClassCount))firstClassCount=0;
+            
+            
+           
+           
+            const total=(firstClassCount*150)+economyCount*100;
+            document.getElementById('total-value').innerText= "$"+total;
+            const taxAmount=Math.round(total*0.1);
+            document.getElementById('tax-value').innerText="$"+taxAmount;
+            const grandTotal=total+taxAmount;
+            document.getElementById('subtotal-value').innerText="$"+grandTotal;
+        }
 
-            function getInputValue(id){
-               const input= document.getElementById(id+'-value')
-               const inputValue=parseInt(input.value);
-               return inputValue;
-            }
+        function getInputValue(id){
+           const input= document.getElementById(id+'-value')
+           const inputValue=parseInt(input.value);
+           return inputValue;
+        }
 
-        </script>
-    </main>
+        document.getElementById('book-now').addEventListener('click',function(){
+            console.log('book now clicked');
+            const mainContent=document.getElementById('main-content');
+            mainContent.style.display='none';
+            const welcome=document.getElementById('welcome');
+            welcome.style.display='block';
+            
+
+        })
+
+    </script>
 
     <!--Thank You-->
 </body>

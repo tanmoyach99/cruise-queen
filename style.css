@@ -122,3 +122,11 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+#welcome{
+    display: none;
+}
+.row{
+    margin: 400px ;
+    background-color: crimson;
+}
+
